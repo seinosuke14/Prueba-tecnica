@@ -10,6 +10,9 @@ import { SearchersComponent } from "./searchers/searchers.component";
 })
 export class AppComponent {
 
-  title = 'Prueba-tecnica';
-  
+  filtro = '';
+
+  actualizarFiltro(valor: string) {
+    this.filtro = valor;
+  }
 }

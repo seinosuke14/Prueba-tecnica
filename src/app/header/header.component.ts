@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { Component, EventEmitter } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { TitleCasePipe } from '@angular/common';
+import { Output } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-header',
@@ -9,7 +12,14 @@ import { TitleCasePipe } from '@angular/common';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  Title: string = 'rick and Mortys Worlds';
+  Title = 'rick and Mortys Worlds';
+  nombrePersonaje = '';
+
+  @Output() buscar = new EventEmitter<string>();
+
+  emitirBusqueda(){
+    this.buscar.emit(this.nombrePersonaje);
+  }
 }
 
 

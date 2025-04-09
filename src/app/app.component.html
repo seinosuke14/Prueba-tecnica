@@ -1,2 +1,2 @@
-<app-header></app-header>
-<app-searchers></app-searchers>
+<app-header (buscar)="actualizarFiltro($event)"></app-header>
+<app-searchers [personajeBuscar] = "filtro"></app-searchers>
