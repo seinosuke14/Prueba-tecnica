@@ -2,9 +2,9 @@
 <div class="banner" *ngIf="personajes.length > 0">
     <div class="characters-cards">
         <div class="Card" *ngFor="let p of personajes">
-           <a href="/Prueba-tecnica/src/app/descriptions/descriptions.component.html">
+        <a [routerLink]="['/descriptions',p.id] " >
             <div class="image">
-                <img [src]="p.image" [alt]="p.name" width="360" height="360 " />
+                 <img [src]="p.image" [alt]="p.name" width="360" height="360 " />
             </div>
         </a>
             <div class="descriptions">
@@ -19,3 +19,4 @@
 <div class="not found" *ngIf="personajes.length === 0">
     <p>No se encontraron personajes o realiza una búsqueda.</p>
 </div>
+

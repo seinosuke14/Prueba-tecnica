@@ -1,40 +1,36 @@
-import { Component ,Input, OnChanges, SimpleChanges, inject  } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient  } from '@angular/common/http';
-import { Url } from 'url';
+import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router'; // ✅ Aquí importa RouterLink
 
-
-
-interface Personajes {
-
+interface Personaje {
   id: number;
   name: string;
   image: string;
   status: string;
   species: string;
-
-
 }
 
 @Component({
   selector: 'app-searchers',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, RouterLink], // ✅ Inclúyelo aquí
   templateUrl: './searchers.component.html',
-  styleUrl: './searchers.component.css'
+  styleUrls: ['./searchers.component.css']
 })
-export class SearchersComponent implements OnChanges{
-
+export class SearchersComponent implements OnChanges {
   @Input() personajeBuscar: string = '';
-  personajes: Personajes[] = [];
-  private http=inject(HttpClient);
+  personajes: Personaje[] = [];
+  private http = inject(HttpClient);
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['personajeBuscar'] && this.personajeBuscar.trim()) {
       const url = `https://rickandmortyapi.com/api/character/?name=${this.personajeBuscar}`;
-      this.http.get<{ results: Personajes[] }>(url).subscribe({
+      this.http.get<{ results: Personaje[] }>(url).subscribe({
         next: res => this.personajes = res.results,
         error: () => this.personajes = [],
       });
     }
   }
 }
+
