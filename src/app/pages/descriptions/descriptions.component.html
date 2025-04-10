@@ -1,8 +1,8 @@
-<div *ngIf="personaje; else cargando">
+<div class="card-descriptions" *ngIf="personaje; else cargando" style="text-align: center;">
     <h1>{{ personaje.name }}</h1>
-    <img [src]="personaje.image" [alt]="personaje.name" />
+    <img [src]="personaje.image" [alt]="personaje.name" style="border-radius: 50px;" />
   
-    <ul>
+    <ul style="list-style: none;">
       <li><strong>ID:</strong> {{ personaje.id }}</li>
       <li><strong>Estado:</strong> {{ personaje.status }}</li>
       <li><strong>Especie:</strong> {{ personaje.species }}</li>

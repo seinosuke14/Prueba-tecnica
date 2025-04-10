@@ -16,7 +16,7 @@
 }
 
 .Card div{
-    border: 1px solid black;
+
 
 
     
@@ -26,6 +26,7 @@
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
+  
 
 }
 
@@ -33,3 +34,6 @@
     padding: 4%;
 }
 
+.not-found {
+    text-align: center;
+}

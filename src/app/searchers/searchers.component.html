@@ -4,19 +4,21 @@
         <div class="Card" *ngFor="let p of personajes">
         <a [routerLink]="['/descriptions',p.id] " >
             <div class="image">
-                 <img [src]="p.image" [alt]="p.name" width="360" height="360 " />
+                 <img [src]="p.image" [alt]="p.name" width="360" height="360" style="border-radius: 50px;" />
             </div>
         </a>
             <div class="descriptions">
-                <h3>{{p.name}}</h3>
-                <p>{{p.status}}</p>
-                <p>{{p.species}}</p>
+                <h3>Nombre: {{p.name}}</h3>
+                <p>Estado: {{p.status}}</p>
+                <p>Raza: {{p.species}}</p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="not found" *ngIf="personajes.length === 0">
+
+<div class="not-found" *ngIf="personajes.length === 0 && busquedaRealizada">
     <p>No existen Personajes con este nombre, prueba otra vez!</p>
 </div>
+
 
