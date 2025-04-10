@@ -1,1 +1,23 @@
-<p>descriptions works!</p>
+<div *ngIf="personaje; else cargando">
+    <h1>{{ personaje.name }}</h1>
+    <img [src]="personaje.image" [alt]="personaje.name" />
+  
+    <ul>
+      <li><strong>ID:</strong> {{ personaje.id }}</li>
+      <li><strong>Estado:</strong> {{ personaje.status }}</li>
+      <li><strong>Especie:</strong> {{ personaje.species }}</li>
+      <li *ngIf="personaje.type"><strong>Tipo:</strong> {{ personaje.type }}</li>
+      <li><strong>Género:</strong> {{ personaje.gender }}</li>
+      <li><strong>Origen:</strong> {{ personaje.origin?.name }}</li>
+      <li><strong>Ubicación actual:</strong> {{ personaje.location?.name }}</li>
+      <li><strong>Creado el:</strong> {{ personaje.created | date:'longDate' }}</li>
+      <li><strong>Cantidad de episodios:</strong> {{ personaje.episode?.length }}</li>
+    </ul>
+  
+    <button><a href="">Volvamos a buscar</a></button>
+  </div>
+  
+  <ng-template #cargando>
+    <p>Cargando personaje...</p>
+  </ng-template>
+  

@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { SearchersComponent } from "./searchers/searchers.component";
-import { RouterOutlet } from '@angular/router';
-import { RouterModule } from '@angular/router';
+import { RouterOutlet,RouterModule, Router } from '@angular/router';
+import { HomeComponent } from "./home/home.component";
+
 
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, SearchersComponent, RouterOutlet,RouterModule],
+  imports: [RouterOutlet, RouterModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   
@@ -16,9 +17,11 @@ import { RouterModule } from '@angular/router';
 export class AppComponent {
 
   filtro = '';
+ 
 
   actualizarFiltro(valor: string) {
     this.filtro = valor;
   }
+
 }
 

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { RouterLink } from '@angular/router'; // ✅ Aquí importa RouterLink
+import { RouterLink, RouterModule } from '@angular/router'; 
 
 interface Personaje {
   id: number;
@@ -13,8 +13,7 @@ interface Personaje {
 
 @Component({
   selector: 'app-searchers',
-  standalone: true,
-  imports: [CommonModule, RouterLink], // ✅ Inclúyelo aquí
+  imports: [CommonModule, RouterLink, RouterModule],
   templateUrl: './searchers.component.html',
   styleUrls: ['./searchers.component.css']
 })
