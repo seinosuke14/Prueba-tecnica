@@ -1,5 +1,5 @@
 <div class="card-descriptions" *ngIf="personaje; else cargando" style="text-align: center;">
-    <h1>{{ personaje.name }}</h1>
+    <h1>{{ personaje.name | uppercase }}</h1>
     <img [src]="personaje.image" [alt]="personaje.name" style="border-radius: 50px;" />
   
     <ul style="list-style: none;">
